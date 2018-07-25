@@ -1,12 +1,12 @@
 >
-> $Date: 2018-07-25 20:44:31 +0300 (Ср, 25 июл 2018) $
+> $Date: 2018-07-25 20:46:07 +0300 (Ср, 25 июл 2018) $
 >
-> $Id: !Critical.md 10410 2018-07-25 17:44:31Z miheev $
+> $Id: !Critical.md 10411 2018-07-25 17:46:07Z miheev $
 >
 
-[Common TODOS](README.md)
-[Critical TODOS](!Critical.md)
-[DONE](!DONE.md)
+- [Common TODOS](README.md)
+- [Critical TODOS](!Critical.md)
+- [DONE](!DONE.md)
 
 CRITICAL TODO
 =============
