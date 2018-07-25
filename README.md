@@ -1,7 +1,7 @@
 >
-> $Id: README.md 10410 2018-07-25 17:44:31Z miheev $
+> $Id: README.md 10412 2018-07-25 17:55:20Z miheev $
 >
-> $Date: 2018-07-25 20:44:31 +0300 (Ср, 25 июл 2018) $
+> $Date: 2018-07-25 20:55:20 +0300 (Ср, 25 июл 2018) $
 >
 
 Основная документация по проекту
@@ -33,4 +33,10 @@
 - [Common TODOs](!TODO/README.md)
 - [DONE](!TODO/!DONE.md)
 - [Critical TODOs](!TODO/!Critical.md)
+
+Прочее
+------
+
+- Старая документация (в куче) -- в папке `WEB_TINTS/_docs/WebClient/!OldDocsHeap`.
+- Синхронизация с [репозиторием на GitHub](https://github.com/lilliputten/vector-docs)
 
