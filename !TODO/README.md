@@ -1,8 +1,8 @@
 > $Date: 2018-03-23 16:13:04 +0300 (Пт, 23 мар 2018) $
 > $Id: !Common.md 10078 2018-03-23 13:13:04Z miheev $
 
+[Common TODOS](README.md) (этот документ)
 [DONE](!DONE.md)
-[Common TODOS](!Common.md)
 [Critical TODOS](!Critical.md)
 
 COMMON TODO
