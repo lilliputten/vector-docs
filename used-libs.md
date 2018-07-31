@@ -1,5 +1,5 @@
-> $Id: used-libs.md 10396 2018-07-25 15:25:35Z miheev $
-> $Date: 2018-07-25 18:25:35 +0300 (Ср, 25 июл 2018) $
+> $Id: used-libs.md 10416 2018-07-31 12:15:55Z miheev $
+> $Date: 2018-07-31 15:15:55 +0300 (Вт, 31 июл 2018) $
 
 Используемые библиотеки
 =======================
@@ -176,3 +176,33 @@
 - [jsrtf - npm](https://www.npmjs.com/package/jsrtf)
 
 Сборка на webpack. См. `WEB_TINTS/source/libs-dev/RTFReport/webpack.config.js`
+
+## Библиотеки как модули
+
+См. также папки:
+
+- `WEB_TINTS/source/blocks/root`
+- `WEB_TINTS/source/blocks/libs`
+- `WEB_TINTS/source/blocks/loaders`
+
+-- на предмет используемых загрузчиков/интерфейсов к библиотекам%
+
+- `FileSaver`
+- `SecureAjax`
+- `dateformatter`
+- `datetimepicker`
+- `fontawesome`
+- `iconSprites`
+- `jquery`
+- `md5`
+- `mousewheel`
+- `nicescroll`
+- `socket`
+- `socketio`
+- `store`
+- `themifyicons`
+
+## Серверные библиотеки
+
+См. [соотв. документ](php-libs.md)
+
