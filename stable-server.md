@@ -1,5 +1,5 @@
-> $Date: 2018-07-31 16:46:42 +0300 (Вт, 31 июл 2018) $
-> $Id: stable-server.md 10419 2018-07-31 13:46:42Z miheev $
+> $Date: 2018-07-31 17:39:11 +0300 (Вт, 31 июл 2018) $
+> $Id: stable-server.md 10422 2018-07-31 14:39:11Z miheev $
 
 Стабильная версия проекта
 =========================
@@ -7,8 +7,8 @@
 Создаётся на рабочем сервере в папке `D:/websites/stable` при запуске скрипта
 `remote.php?stable`:
 
-- [Apache](http://youcomp.geyser.ru:8082/WEB_TINTS/remote.php?stable)
-- [Remote Apache](http://185.41.41.90:8082/WEB_TINTS/remote.php?stable)
+- Apache: `http://youcomp.geyser.ru:8082/WEB_TINTS/remote.php?stable`
+- Remote Apache: `http://185.41.41.90:8082/WEB_TINTS/remote.php?stable`
 
 Альтернатива: запуск команды `gulp stable` на сервере в папке
 `WEB_TINTS/source` -- возможно, оптимально для отлеживания ошибок (выполнение
