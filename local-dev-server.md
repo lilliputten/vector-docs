@@ -1,5 +1,5 @@
-> $Id: local-dev-server.md 10435 2018-08-01 14:01:13Z miheev $
-> $Date: 2018-08-01 17:01:13 +0300 (Ср, 01 авг 2018) $
+> $Id: local-dev-server.md 10439 2018-08-01 16:05:47Z miheev $
+> $Date: 2018-08-01 19:05:47 +0300 (Ср, 01 авг 2018) $
 
 Локальный сервер разработчика
 =============================
@@ -66,7 +66,7 @@ nginx используется 5590, см. параметр конфигурац
 подстановки в `project__config.js`; выбрасываются при обработки директив
 `DEBUG*` при постпроцессинге).
 
-Пример формирования корневного пути запросов:
+Пример формирования корневого пути запроса:
 ```javascript
     rootUrl = /*DEBUG*/USE_ENB_URLS ? enbRoot :
         '../',
@@ -115,7 +115,96 @@ Nodejs скрипт располагается в папке `WEB_TINTS/release/
 Параметры работы (локальный адрес доступа, удалённый сервер, параметры
 подключения и т.д.) выводятся во время старта скрипта.
 
-Открытие страниц системы или отдельных пакетов
-----------------------------------------------
+Конфигурация локального сервера
+-------------------------------
 
-В режиме nginx можно работать
+Используемые версии ПО:
+
+- PHP: 5.x
+- Apache: 2.4
+- Nginx: 1.11
+- OpenSSL-Win64: 1.0.x
+- Redis server: 2.8.x
+- Svn: *
+
+### Изменения в конфигурации
+
+PHP (`C:/Windows/php.ini`):
+```php.ini
+max_execution_time = 180; Увеличенное время выполнения
+memory_limit = 128M; Увеличенный объём памяти
+error_log = c:/_logs/php.log; Лог ошибок в удобное место
+; Расширения...
+extension=php_phalcon.dll
+extension=php_redis.dll
+extension=php_fileinfo.dll
+extension=php_soap.dll
+extension=php_mbstring.dll
+extension=php_bz2.dll
+extension=php_curl.dll
+extension=php_exif.dll
+extension=php_gd2.dll
+extension=php_gettext.dll
+extension=php_imap.dll
+extension=php_mysql.dll
+extension=php_mysqli.dll
+extension=php_openssl.dll
+extension=php_sockets.dll
+extension=php_xmlrpc.dll
+soap.wsdl_cache_ttl=1
+```
+
+Apache (`C:/Apache24/conf/httpd.conf`):
+```https.conf
+# Модули...
+LoadModule headers_module modules/mod_headers.so
+LoadModule include_module modules/mod_include.so
+LoadModule rewrite_module modules/mod_rewrite.so
+# Root...
+<Directory />
+    Options Indexes FollowSymLinks Includes ExecCGI
+    AllowOverride All
+</Directory>
+# Vektor...
+DocumentRoot "D:/Work/vektor"
+<Directory "D:/Work/vektor">
+Options Indexes FollowSymLinks Includes ExecCGI
+# Header set Access-Control-Allow-Headers "element-token, Access-Control-Allow-Origin"
+# Header set Access-Control-Allow-Origin "http://localhost:8080"
+# Header set Access-Control-Allow-Origin "*"
+AllowOverride All
+Require all granted
+</Directory>
+# Dir...
+<IfModule dir_module>
+    DirectoryIndex index.php index.html
+</IfModule>
+# Fancy directory listings
+Include conf/extra/httpd-autoindex.conf
+# Language settings
+Include conf/extra/httpd-languages.conf
+# Virtual hosts
+Include conf/extra/httpd-vhosts.conf
+# PHP...
+# LoadModule php5_module "C:/PHP54/php5apache2_2.dll"
+LoadModule php5_module "C:/PHP54/php5apache2_4.dll"
+AddType application/x-httpd-php .php .phtml
+```
+
+Apache (`C:/Apache24/conf/extra/httpd-vhosts.conf`):
+```https.conf
+<VirtualHost 127.0.0.1:80>
+ServerName vektor.local
+DocumentRoot D:/Work/vektor/WEB_TINTS
+CustomLog D:/Work/vektor/.vektor.local.access.log common
+ErrorLog D:/Work/vektor/.vektor.local.error.log
+Alias /WEB_TINTS/release D:/Work/vektor/WEB_TINTS/release
+Alias /WEB_TINTS D:/Work/vektor/WEB_TINTS/release
+</VirtualHost>
+<VirtualHost 127.0.0.1:80>
+ServerName phpinfo.local
+DocumentRoot D:/Sites/phpinfo/www
+CustomLog D:/Sites/phpinfo/phpinfo.log common
+ErrorLog D:/Sites/phpinfo/phpinfo.error.log
+</VirtualHost>
+```
