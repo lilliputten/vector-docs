@@ -1,5 +1,5 @@
-> $Date: 2018-07-31 16:46:42 +0300 (Вт, 31 июл 2018) $
-> $Id: open-app.md 10419 2018-07-31 13:46:42Z miheev $
+> $Date: 2018-08-01 19:12:23 +0300 (Ср, 01 авг 2018) $
+> $Id: open-app.md 10440 2018-08-01 16:12:23Z miheev $
 
 Открытие приложения по идентификатору
 =====================================
@@ -7,18 +7,18 @@
 Для открытия приложения в `app.html` параметром (`app=`) или через спецнотацию
 в хэше (`app:`) передаётся идентификатор:
 
-- `App.html?app={tcm,umto,dc}`
-- `App.html#app:{tcm,umto,dc}`
+- `app.html?app={tcm,umto,dc}`
+- `app.html#app:{tcm,umto,dc}`
 
 -- второй способ для открытия phalcon-приложения без перезагрузки страницы.
 
 Например:
 
-- `http://youcomp.geyser.ru:8082/WEB_TINTS/core/App.html?app=tcm`
+- `http://youcomp.geyser.ru:8082/WEB_TINTS/core/app.html?app=tcm`
 
 Или:
 
-- `http://youcomp.geyser.ru:8082/WEB_TINTS/core/App.html#app:tcm`
+- `http://youcomp.geyser.ru:8082/WEB_TINTS/core/app.html#app:tcm`
 
 Если идентификатор страницы по умолчанию для данного ph-приложения найден в
 описании рубрик меню  (`$_CONSTANTS['appdata']['menu_rubrics']`, см.
