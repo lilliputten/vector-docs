@@ -130,7 +130,7 @@ Nodejs скрипт располагается в папке `WEB_TINTS/release/
 ### Изменения в конфигурации
 
 PHP (`C:/Windows/php.ini`):
-```php.ini
+```ini
 max_execution_time = 180; Увеличенное время выполнения
 memory_limit = 128M; Увеличенный объём памяти
 error_log = c:/_logs/php.log; Лог ошибок в удобное место
@@ -155,7 +155,7 @@ soap.wsdl_cache_ttl=1
 ```
 
 Apache (`C:/Apache24/conf/httpd.conf`):
-```apache
+```apacheconf
 # Модули...
 LoadModule headers_module modules/mod_headers.so
 LoadModule include_module modules/mod_include.so
@@ -192,7 +192,7 @@ AddType application/x-httpd-php .php .phtml
 ```
 
 Apache (`C:/Apache24/conf/extra/httpd-vhosts.conf`):
-```apache
+```apacheconf
 <VirtualHost 127.0.0.1:80>
 ServerName vektor.local
 DocumentRoot D:/Work/vektor/WEB_TINTS
