@@ -1,5 +1,5 @@
-> $Id: local-dev-server.md 10434 2018-08-01 13:34:25Z miheev $
-> $Date: 2018-08-01 16:34:25 +0300 (Ср, 01 авг 2018) $
+> $Id: local-dev-server.md 10435 2018-08-01 14:01:13Z miheev $
+> $Date: 2018-08-01 17:01:13 +0300 (Ср, 01 авг 2018) $
 
 Локальный сервер разработчика
 =============================
@@ -9,8 +9,39 @@
 
 Локальный сервер может использоваться в двух режимах:
 
-- Standalone enb-server: "голый" enb-сервер. Вместо реальных данных используются накопленные демо-данные (fake-data, см. [Эмуляция и накопление данных от сервера приложения](fake-data.md)).
-- Эмуляция реального окружения сервера с помощью nginx. Все запросы данных и ресурсов перенапрвляются к локальному enb-серверу.
+### Standalone enb-server
+
+"Голый" enb-сервер. Вместо реальных данных используются накопленные демо-данные (fake-data, см. [Эмуляция и накопление данных от сервера приложения](fake-data.md)).
+
+Примеры запросов:
+
+- `http://localhost:8080/pages/Report/Report.htm` -- Пакет "Отчёты".
+- `http://localhost:8080/pages/MapView/MapView.htm` -- Пакет "Компонент с картой".
+- `http://localhost:8080/pages/App/App.html#tcm_Planning_Tasks` -- Страница "Планирование задач".
+- `http://localhost:8080/pages/Demo/Demo.htm?demo=ValueCell` -- Демо-компонент "Ячейки данных".
+- `http://localhost:8080/pages/Demo/Demo.htm?demo=tableview-local&demo=tableview-static` -- Демо-компоненты "Таблицы".
+
+### Эмуляция реального окружения сервера с помощью nginx
+
+Все запросы данных и ресурсов перенапрвляются к локальному enb-серверу.
+
+Примеры запросов:
+
+- `http://localhost:5590/WEB_TINTS/core/app.html#app:tcm` -- Приложение "ТЦМ" ("ГДЦ").
+- `http://localhost:5590/WEB_TINTS/core/app.html?app=umto` -- Приложение "УМТО" ("НЦУО").
+- `http://localhost:5590/WEB_TINTS/core/app.html#tcm_Planning_Tasks` -- Страница "ТЦМ / Планирование задач".
+- `http://localhost:5590/WEB_TINTS/core/?demo=tableview-local&demo=tableview-static#Demo` -- Демо-компоненты "Таблицы".
+
+Расширение конфигурации проекта в рантайм (пример, передача параметров в `app.js`)
+----------------------------------------------------------------------------------
+
+- `http://localhost:8080/pages/App/App.html?DEBUG=true&audioNotifications=false#tcm_Monitoring_KO`
+- `http://localhost:5590/WEB_TINTS/core/app.html?useSockets=true&catchSocketsError=true#tcm_Reports_efficiency`
+
+Пеопределять можно все параметры, имеющие смысл в контексте `project.config`.
+
+Определение режима
+------------------
 
 При первом обращении в зависимости от адреса запроса (точнее, от порта: для
 nginx используется 5590, см. параметр конфигурации `NGINX_PORT` в

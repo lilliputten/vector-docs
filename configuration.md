@@ -1,5 +1,5 @@
-> $Id: configuration.md 10433 2018-08-01 12:21:46Z miheev $
-> $Date: 2018-08-01 15:21:46 +0300 (Ср, 01 авг 2018) $
+> $Id: configuration.md 10435 2018-08-01 14:01:13Z miheev $
+> $Date: 2018-08-01 17:01:13 +0300 (Ср, 01 авг 2018) $
 
 Конфигурация системы
 ====================
@@ -72,11 +72,11 @@
 Конфигурация приложения app (блоки `project__*`)
 ------------------------------------------------
 
-- `WEB_TINTS\source\blocks\shared\project\__root\project__root.js`
-- `WEB_TINTS\source\blocks\shared\project\__polyfills\project__polyfills.js`
-- `WEB_TINTS\source\blocks\shared\project\__config\project__config.js`
-- `WEB_TINTS\source\blocks\shared\project\__helpers\project__helpers.js`
-- `WEB_TINTS\source\blocks\shared\project\project.js`
+- `WEB_TINTS/source/blocks/shared/project/__root/project__root.js`
+- `WEB_TINTS/source/blocks/shared/project/__polyfills/project__polyfills.js`
+- `WEB_TINTS/source/blocks/shared/project/__config/project__config.js`
+- `WEB_TINTS/source/blocks/shared/project/__helpers/project__helpers.js`
+- `WEB_TINTS/source/blocks/shared/project/project.js`
 
 (TODO: Дописать про структуру конфигурации, процесс её построения, использование. М.б., выделить в отдельный док-т.)
 
@@ -85,6 +85,8 @@
 
 - `http://localhost:5590/WEB_TINTS/core/app.html?useSockets=true&catchSocketsError=true#tcm_Reports_efficiency`
 - `http://youcomp.geyser.ru:5590/WEB_TINTS/core/app.debug.html?DEBUG=true&audioNotifications=false#tcm_Monitoring_KO`
+
+Пеопределять можно все параметры, имеющие смысл в контексте `project.config`.
 
 Системное (на локальной машине `Miheev`)
 ----------------------------------------
