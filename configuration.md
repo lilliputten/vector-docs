@@ -1,27 +1,31 @@
-> $Id: configuration.md 10430 2018-08-01 10:43:07Z miheev $
-> $Date: 2018-08-01 13:43:07 +0300 (Ср, 01 авг 2018) $
+> $Id: configuration.md 10433 2018-08-01 12:21:46Z miheev $
+> $Date: 2018-08-01 15:21:46 +0300 (Ср, 01 авг 2018) $
 
 Конфигурация системы
 ====================
 
-## Зависимости, свойства проекта и скрипты (npm/nodejs)
+Зависимости, свойства проекта и скрипты (npm/nodejs)
+----------------------------------------------------
 
 - `WEB_TINTS/source/package.json` -- Конфигурация npm.
 
-## Сборщик enb
+Сборщик enb
+-----------
 
 - `WEB_TINTS/source/.enb/make.js` -- Конфигурация enb.
 
 См. [Сборка enb](enb-make.md)
 
-## Сборщик gulp
+Сборщик gulp
+------------
 
 - `WEB_TINTS/source/gulpfile.config.yaml` -- Конфигурация gulp.
 - `WEB_TINTS/source/gulpfile.js` -- Управляющий скрипт gulp.
 
 См. [Процедура сборки и конфигурация](make.md)
 
-## Параметры сервера phalcon
+Параметры сервера phalcon
+-------------------------
 
 - `WEB_TINTS/release/core/scripts/php/app/config/config_constants.php` --
   Параметры конфигурации сервера. Создаётся глобальный ассоциированный
@@ -31,7 +35,8 @@
 - `WEB_TINTS/release/core/scripts/php/app/config/config.php` -- Создание
   конфигурации phalcon `\Phalcon\Config`.
 
-## Конфигурация приложений phalcon
+Конфигурация приложений phalcon
+-------------------------------
 
 - `WEB_TINTS/release/application/scripts/php/app/config/config.php`
 
@@ -39,7 +44,8 @@
 - `WEB_TINTS/release/element-tcm/scripts/php/app/config/config.php`
 - `WEB_TINTS/release/element-umto/scripts/php/app/config/config.php`
 
-## Структура меню и список страниц системы
+Структура меню и список страниц системы
+---------------------------------------
 
 См. папку `WEB_TINTS/release/core/scripts/php/app-config`:
 
@@ -54,7 +60,8 @@
 - `apptools.php` -- Утилиты для создания описаний страниц.
 - `generated_bem_variables.php` -- Генерируемый файл с параметрами последней сборки.
 
-## Проект bem
+Проект bem
+----------
 
 - `WEB_TINTS/source/blocks/shared/project/__polyfills/project__polyfills.js`
 - `WEB_TINTS/source/blocks/shared/project/__root/project__root.js`
@@ -62,12 +69,25 @@
 - `WEB_TINTS/source/blocks/shared/project/__helpers/project__helpers.js`
 - `WEB_TINTS/source/blocks/shared/project/project.deps.js`
 
-## Расширение конфигурации проекта в рантайм (пример, передача параметров в `app.js`)
+Конфигурация приложения app (блоки `project__*`)
+------------------------------------------------
+
+- `WEB_TINTS\source\blocks\shared\project\__root\project__root.js`
+- `WEB_TINTS\source\blocks\shared\project\__polyfills\project__polyfills.js`
+- `WEB_TINTS\source\blocks\shared\project\__config\project__config.js`
+- `WEB_TINTS\source\blocks\shared\project\__helpers\project__helpers.js`
+- `WEB_TINTS\source\blocks\shared\project\project.js`
+
+(TODO: Дописать про структуру конфигурации, процесс её построения, использование. М.б., выделить в отдельный док-т.)
+
+Расширение конфигурации проекта в рантайм (пример, передача параметров в `app.js`)
+----------------------------------------------------------------------------------
 
 - `http://localhost:5590/WEB_TINTS/core/app.html?useSockets=true&catchSocketsError=true#tcm_Reports_efficiency`
 - `http://youcomp.geyser.ru:5590/WEB_TINTS/core/app.debug.html?DEBUG=true&audioNotifications=false#tcm_Monitoring_KO`
 
-## Системное (на локальной машине `Miheev`)
+Системное (на локальной машине `Miheev`)
+----------------------------------------
 
 - `C:/nginx-1.11.10/conf/nginx.conf`
 - `C:/nginx-1.11.10/logs/error.log`
@@ -79,9 +99,9 @@
 - `C:/Apache24/conf/httpd.conf`
 - `C:/Apache24/conf/extra/httpd-vhosts.conf`
 
-## Системное (на сервере `youcomp`)
+Системное (на сервере `youcomp`)
+--------------------------------
 
 - `c:/nginx-1.9.7/conf/nginx.conf`
 - `c:/php_5.6.11/php.ini`
-
 
