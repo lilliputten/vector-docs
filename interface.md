@@ -69,6 +69,23 @@
 Модификации для стандартных компонент расположены в уровне переопределения
 `root` (`WEB_TINTS/source/blocks/root`).
 
+Основные элементы интерфейса:
+
+- `input` -- Текстовый ввод. См. [bem-components / input](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/input/)
+- `textarea` -- Ввод относительно большого фрагмента текста. См. [bem-components / textarea](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/textarea/)
+- `select` -- Раскрывающийся список с выбором из нескольких вариантов. См. [bem-components / select](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/select/)
+- `menu` -- Выбор из списка вариантов. См. [bem-components / menu](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/menu/)
+- `button` -- Кнопка. См. [bem-components / button](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/button/)
+- `checkbox` -- Элемент выбора состояний да/нет. См. [bem-components / checkbox](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/checkbox/)
+- `radio` -- Элемент радиопереключателя. См. [bem-components / radio](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/radio/)
+- `checkbox-group` -- Группа чекбоксов. См. [bem-components / checkbox-group](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/checkbox-group/)
+- `radio-group` -- Группа радио-переключателей. См. [bem-components / radio-group](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/radio-group/)
+- `control-group` -- Визуальная группировка элементов в один элемент. См. [bem-components / control-group](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/control-group/)
+- `attach` -- Выбор файла в файловой системе (для загрузки или использования в js-коде). См. [bem-components / attach](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/attach/)
+
+Организация разметки
+--------------------
+
 Для организации пространственной разметки интерфейса служат секции `box`. См.
 [Секции box -- основной структурный элемент построения
 интерфейса](interface-box-sections.md).
@@ -79,8 +96,16 @@
 Добавлением модификатора `filters` к панели `boxActions` примешивается
 функционал контроллера фильтров.
 
+Группировка управляющих компонент
+---------------------------------
+
 Отдельные управляющие компоненты группируются блоками `actions` (с элементами
 различных типов: `selector_group`, `selector`, `date`, `select`, `action`,
-`button`, `buttonNav`, `input`). Блок `ShowInfo` предназначен для вывода
+`button`, `buttonNav`, `input`, `text`). Блок `ShowInfo` предназначен для вывода
 статической или динамически обновляемой информации.
 
+Блоки `actions` предполагаются как основной компонент для организации взаимодействия с пользователем.
+
+Могут использоваться:
+
+- В управляющих плавающих панелях на картах (`MapView`). В этом случае применяется следующая структура: `.MapView__actionsGroup > .KOActions.MapView__actions .KOActions__actions.actions > *`.
