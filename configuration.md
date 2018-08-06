@@ -1,5 +1,5 @@
-> $Id: configuration.md 10435 2018-08-01 14:01:13Z miheev $
-> $Date: 2018-08-01 17:01:13 +0300 (Ср, 01 авг 2018) $
+> $Id: configuration.md 10467 2018-08-06 11:35:40Z miheev $
+> $Date: 2018-08-06 14:35:40 +0300 (Пн, 06 авг 2018) $
 
 Конфигурация системы
 ====================
@@ -86,7 +86,7 @@
 - `http://localhost:5590/WEB_TINTS/core/app.html?useSockets=true&catchSocketsError=true#tcm_Reports_efficiency`
 - `http://youcomp.geyser.ru:5590/WEB_TINTS/core/app.debug.html?DEBUG=true&audioNotifications=false#tcm_Monitoring_KO`
 
-Пеопределять можно все параметры, имеющие смысл в контексте `project.config`.
+Переопределять можно все параметры, имеющие смысл в контексте `project.config`.
 
 Системное (на локальной машине `Miheev`)
 ----------------------------------------
