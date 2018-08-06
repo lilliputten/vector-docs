@@ -1,5 +1,5 @@
-> $Id: interface.md 10471 2018-08-06 14:35:05Z miheev $
-> $Date: 2018-08-06 17:35:05 +0300 (Пн, 06 авг 2018) $
+> $Id: interface.md 10473 2018-08-06 15:35:24Z miheev $
+> $Date: 2018-08-06 18:35:24 +0300 (Пн, 06 авг 2018) $
 
 Интерфейс системы
 =================
@@ -66,11 +66,9 @@
 - [6.0.0 / bem-components / Библиотеки / Платформа / БЭМ](https://ru.bem.info/platform/libs/bem-components/6.0.0/)
 - [bem/bem-components: Set of components for sites development](https://github.com/bem/bem-components)
 
-Модификации для стандартных компонент расположены в уровне переопределения
-`root` (`WEB_TINTS/source/blocks/root`).
-
 Основные элементы интерфейса:
 
+- `link` -- Ссылка. См. [bem-components / link](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/link/)
 - `input` -- Текстовый ввод. См. [bem-components / input](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/input/)
 - `textarea` -- Ввод относительно большого фрагмента текста. См. [bem-components / textarea](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/textarea/)
 - `select` -- Раскрывающийся список с выбором из нескольких вариантов. См. [bem-components / select](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/select/)
@@ -82,6 +80,29 @@
 - `radio-group` -- Группа радио-переключателей. См. [bem-components / radio-group](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/radio-group/)
 - `control-group` -- Визуальная группировка элементов в один элемент. См. [bem-components / control-group](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/control-group/)
 - `attach` -- Выбор файла в файловой системе (для загрузки или использования в js-коде). См. [bem-components / attach](https://ru.bem.info/platform/libs/bem-components/6.0.0/desktop/attach/)
+
+Модификации для стандартных компонент расположены в уровне переопределения
+`root` (`WEB_TINTS/source/blocks/root`):
+
+- `button/_altClick` -- Альтернативный механизм обработки клика. Для обхода багов с событиями на карте `openlayers`.
+- `button/_waiting` -- Кнопка "со спинером" (ожидание).
+- `button_sprite` -- Кнопка с иконкой из спрайт-наборов. См. `WEB_TINTS/source/libs-dev/icon-sprites`.
+- `datetimerange` -- Комбинированный элемент выбора диапазона дат. Состоит из двух компонент `input:date`.
+- `icon/_sprite` -- Иконка из спрайт-наборов. См. `WEB_TINTS/source/libs-dev/icon-sprites`.
+- `input/_altClick` -- Для `altClick` добавляем альтернативный обработчик кликов для `__clear` (по `click` вместо `pointerclick`). Для обхода багов с событиями на карте `openlayers`.
+- `input/_date` -- Поле для ввода даты-времени.
+- `input/_postText` -- Информационный текст после поля ввода. Используется, напр., в комбинированных полях для ввода координат (градусы/минуты/секунды).
+- `link` -- Модифицированный стоковый `link`.
+- `menu/_nicescroll` -- Выбор элементов с прокруткой `nicescroll`.
+- `menu/_popup` -- Стилизация выбора элементов во всплывающем окне.
+- `menu/_tree` -- Иерархическая организация элементов в меню.
+- `select/_nicescroll` -- Выбор элементов из списка с прокруткой `nicescroll`.
+- `select/_tree` -- Выбор элементов из списка с иерархической организацией.
+- `textarea/_nicescroll` -- Область ввода с прокруткой `nicescroll`.
+
+Для всех основных компонент имеются доопределения тем стилизации. Располагаются в файлах с путями вида:
+
+- `WEB_TINTS/source/blocks/root/{blockName}/_theme/{blockName}_theme_islands.styl`
 
 Организация разметки
 --------------------
