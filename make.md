@@ -1,5 +1,5 @@
-> $Id: make.md 10476 2018-08-07 10:48:11Z miheev $
-> $Date: 2018-08-07 13:48:11 +0300 (Вт, 07 авг 2018) $
+> $Id: make.md 10480 2018-08-07 12:15:59Z miheev $
+> $Date: 2018-08-07 15:15:59 +0300 (Вт, 07 авг 2018) $
 
 Процедура сборки и конфигурация
 ===============================
@@ -129,4 +129,17 @@ fримеры вызова команд удалённо:
 - Клиентские скрипты (`*.browser*.js`) -- файлы `WEB_TINTS/release/core/js/bem/*.browser{.min}.js`.
 - Bemhtml шаблоны (`*.bemhtml*.js`) -- файлы `WEB_TINTS/release/core/js/bem/*.bemhtml{.min}.js`.
 - Стили (`*.styles*.css`) -- файлы `WEB_TINTS/release/core/css/bem/*.styles{.min}.css`.
+
+### Генерация перменных сборки для использования в рантайм на сервере
+
+Исходные файлы (шаблоны):
+
+- `WEB_TINTS/source/export_variables.json.template`
+- `WEB_TINTS/source/export_variables.php.template`
+
+Создаваемый файл:
+
+- `WEB_TINTS/release/core/scripts/php/app-config/generated_bem_variables.php`
+
+Включается инклюдом в `WEB_TINTS/release/core/scripts/php/app/controllers/LayoutController.php`.
 
