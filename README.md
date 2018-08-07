@@ -49,5 +49,5 @@
 ------
 
 - Старая документация (в куче) -- в папке `WEB_TINTS/_docs/WebClient/!OldDocsHeap`.
-- Синхронизация с репозиторием на GitHub: [](https://github.com/lilliputten/vector-docs)
+- Синхронизация с репозиторием на GitHub: [https://github.com/lilliputten/vector-docs]()
 
