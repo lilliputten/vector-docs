@@ -1,5 +1,5 @@
-> $Id: obsolette-components.md 10494 2018-08-08 11:17:23Z miheev $
-> $Date: 2018-08-08 14:17:23 +0300 (Ср, 08 авг 2018) $
+> $Id: obsolette-components.md 10495 2018-08-08 11:24:37Z miheev $
+> $Date: 2018-08-08 14:24:37 +0300 (Ср, 08 авг 2018) $
 
 Устаревшие компоненты
 =====================
@@ -10,25 +10,23 @@
 Преимущественно используются в заглушках из `fake-pages`. Можно будет удалить
 из системы, когда будут удалены/изменены зависимые компоненты.
 
-- `AnyMap` -- Используем `AnyMapLoader`?
-- `KOLoader` -- интегрирован в `MapList`.
 - `KOList`, `KOListDetails` -- заменяются на `MapList`, `MapListDetailed`?
+- `KOLoader` -- интегрирован в `MapList`.
 - `box_actions` -- заменён на `boxActions`.
 - `box_columns_selector` -- вообще не используется?
-- `boxing_sync`
-- `boxing`
-- `boxset`
-- `columns_selector`
-- `content_box`
-- `datasets`
+- `boxing_sync` -- Используется `box`.
+- `boxing` -- Используется `box`.
+- `boxset` -- Используется `box`.
+- `columns_selector` -- Должен использоваться `ObjectsSelector`.
+- `content_box` -- Может ещё где-то применяться. Надо смотреть.
+- `datasets` -- Скорее всего, остался только в коде страницы `AdminKO`.
 - `object_details` -- Используется в старом `Admin`. ???
 - `objects_list` -- Используется в старом `Admin`. ???
-- `panelbox`
+- `panelbox` -- Используется `box`.
 - `request_controller` -- Используются `requestor`, `SecureAjax`. Удалить после освобождения зависимостей в удаляемых/заменяемых компонентах (`object_details.js` etc).
-- `split_objects_list`
+- `split_objects_list` -- Используется только в `AdminKO`.
 - `split_view` -- Используется только в демо-страница (fake-pages) и на старом AdminKO.
-- `test_controller`
-- `vlayout` (Используется `box`).
+- `vlayout` -- Используется `box`.
 
 Устаревшие пакеты (bem-bundles)
 -------------------------------
