@@ -136,3 +136,62 @@
   `.box__container` как единственный наследник или группироваться с другими
   блоками `.actions`.
 
+Элементы интерфейса
+-------------------
+
+Доступные для упаковки в секции `actions` компоненты можно посмотреть на соотв. демо-блоках локально:
+
+- `http://localhost:8080/pages/Demo/Demo.htm?demo=button-default&demo=button-sprite&demo=button-size`
+- `http://localhost:8080/pages/Demo/Demo.htm?demo=ValueCell-default`
+
+Или на сервере:
+
+- `http://youcomp.geyser.ru:5590/WEB_TINTS/release/core/app.debug.html?demo=button#Demo`
+- `http://youcomp.geyser.ru:5590/WEB_TINTS/release/core/app.debug.html?demo=ValueCell#Demo`
+
+Обычно используются следующие элементы:
+
+Примеры элементов
+-----------------
+
+(Рассматриваются элементы блока `actions`.)
+
+См. примеры в демо-блоке `WEB_TINTS\source\blocks\test\demo\_actions\demo_actions_default.js`
+
+См. демо-страницу:
+
+- `http://localhost:8080/pages/Demo/Demo.htm?demo=actions-default`
+- `http://youcomp.geyser.ru:5590/WEB_TINTS/release/core/app.debug.html?demo=actions#Demo`
+
+![Возможные элементы](img/demo-actions-default.png)
+
+Крупные кнопки:
+
+```javascript
+    {
+        elem : 'button',
+        id : 'apply',
+        cls : 'button_large',
+    }
+```
+
+Обычные кнопки:
+
+```javascript
+    {
+        elem : 'action',
+        id : 'Plus',
+        mods : {
+            togglable : 'check',
+            checked : true,
+        },
+        title : 'Детальные условия',
+        icon : 'icon_turnaround ti ti-angle-down',
+    }
+
+```
+
+Для некоторых предопределённых идентификаторов кнопок -- см. `project.config.buttons_data` -- нет необходимости указывать название кнопки и используемую иконку.
+
+Иконки могут задаваться как параметром `icon: { block : 'icon', cls : ..., ... }`, так и спрайтом.
+

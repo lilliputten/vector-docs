@@ -30,7 +30,7 @@
 - `http://localhost:5590/WEB_TINTS/core/app.html#app:tcm` -- Приложение "ТЦМ" ("ГДЦ").
 - `http://localhost:5590/WEB_TINTS/core/app.html?app=umto` -- Приложение "УМТО" ("НЦУО").
 - `http://localhost:5590/WEB_TINTS/core/app.html#tcm_Planning_Tasks` -- Страница "ТЦМ / Планирование задач".
-- `http://localhost:5590/WEB_TINTS/core/?demo=tableview-local&demo=tableview-static#Demo` -- Демо-компоненты "Таблицы".
+- `http://localhost:5590/WEB_TINTS/core/app.debug.html?demo=tableview-local&demo=tableview-static#Demo` -- Демо-компоненты "Таблицы".
 
 Расширение конфигурации проекта в рантайм (пример, передача параметров в `app.js`)
 ----------------------------------------------------------------------------------
