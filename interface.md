@@ -1,5 +1,5 @@
-> $Id: interface.md 10476 2018-08-07 10:48:11Z miheev $
-> $Date: 2018-08-07 13:48:11 +0300 (Вт, 07 авг 2018) $
+> $Id: interface.md 10508 2018-08-08 16:34:51Z miheev $
+> $Date: 2018-08-08 19:34:51 +0300 (Ср, 08 авг 2018) $
 
 Интерфейс системы
 =================
@@ -163,35 +163,74 @@
 - `http://localhost:8080/pages/Demo/Demo.htm?demo=actions-default`
 - `http://youcomp.geyser.ru:5590/WEB_TINTS/release/core/app.debug.html?demo=actions#Demo`
 
-![Возможные элементы](img/demo-actions-default.png)
+![Изображение: Элементы секций actions](img/demo-actions-default.png)
 
-Крупные кнопки:
-
-```javascript
-    {
-        elem : 'button',
-        id : 'apply',
-        cls : 'button_large',
-    }
-```
-
-Обычные кнопки:
+Некоторые примеры представлены ниже.
 
 ```javascript
     {
         elem : 'action',
-        id : 'Plus',
-        mods : {
-            togglable : 'check',
-            checked : true,
-        },
-        title : 'Детальные условия',
-        icon : 'icon_turnaround ti ti-angle-down',
-    }
-
+        title : 'Крупная кнопка без фона, кастомная иконка активного цвета, для секции типа fullHeight',
+        id : 'applyCustom',
+        icon : { block : 'icon', cls : 'ti ti-printer' },
+        cls : 'button_large button_nobg button_action_light',
+    },
 ```
 
 Для некоторых предопределённых идентификаторов кнопок -- см. `project.config.buttons_data` -- нет необходимости указывать название кнопки и используемую иконку.
 
 Иконки могут задаваться как параметром `icon: { block : 'icon', cls : ..., ... }`, так и спрайтом.
+
+```javascript
+    {
+        elem : 'action',
+        title : 'Обычная кнопка с состоянием и поворотной иконкой',
+        id : 'Plus',
+        mods : {
+            togglable : 'check',
+            checked : true,
+        },
+        cls : 'button_action_light',
+        icon : 'icon_turnaround ti ti-angle-down',
+    },
+```
+
+```javascript
+    {
+        elem : 'select',
+        hint : 'Одиночный необязательный выбор',
+        id : 'Select01',
+        mods : {
+            mode : 'radio-check',
+        },
+        text : 'Текст по умолчанию',
+        options : [
+            { val : 1, text : 'Пункт 1' },
+            { val : 2, text : 'Пункт 2' },
+        ],
+    },
+```
+
+```javascript
+    {
+        elem : 'input',
+        hint : 'Текстовое поле ввода',
+        id : 'Input01',
+        val : 'Текст по умолчанию',
+    },
+```
+
+```javascript
+    {
+        elem : 'datetimerange',
+        hint : 'Ввод диапазона дат',
+        id : 'Datetimerange01',
+        textBefore : 'Диапазон от',
+        textMiddle : 'до',
+        val : [
+            '05.04.2018',
+            '01.06.2018',
+        ],
+    },
+```
 
