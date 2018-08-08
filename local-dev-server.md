@@ -1,5 +1,5 @@
-> $Id: local-dev-server.md 10487 2018-08-08 09:46:15Z miheev $
-> $Date: 2018-08-08 12:46:15 +0300 (Ср, 08 авг 2018) $
+> $Id: local-dev-server.md 10488 2018-08-08 09:51:52Z miheev $
+> $Date: 2018-08-08 12:51:52 +0300 (Ср, 08 авг 2018) $
 
 Локальный сервер разработчика
 =============================
@@ -79,7 +79,7 @@ nginx используется 5590, см. параметр конфигурац
 ```nginx
     # Перекидываем динамику к enb серверу...
     # Описание содержания страниц
-    location ~* ^/WEB_TINTS/(?:release/)*core/js/bemjson/(\w+).json$ {
+    location ~* ^/WEB_TINTS/(?:release/)*core/js/bemjson/(/w+).json$ {
       proxy_pass http://127.0.0.1:8080/pages/$1/$1.json;
     }
     # Разметка страницы приложения
@@ -87,7 +87,7 @@ nginx используется 5590, см. параметр конфигурац
       proxy_pass http://127.0.0.1:8080/pages/App/App.html$2;
     }
     # Сброки css|browser|bemhtml для рабочих экранов (версии '.stylesx.css', '.browserx.js', '.bemhtmlx.js')
-    location ~* ^/WEB_TINTS/(?:release/)*core/(js|css)/bem/([^\.\/]*)\.(styles|browser|bemhtml)(?:\.min)*\.((?:css|js).*)$ {
+    location ~* ^/WEB_TINTS/(?:release/)*core/(js|css)/bem/([^/.//]*)/.(styles|browser|bemhtml)(?:/.min)*/.((?:css|js).*)$ {
       proxy_pass http://127.0.0.1:8080/pages/$2/$2.$3x.$4;
     }
 ```
@@ -95,15 +95,17 @@ nginx используется 5590, см. параметр конфигурац
 См. [полный файл конфигурации nginx](local-dev-server-nginx.conf).
 
 Запросы к данным в режиме nginx отправляются на локально запущенный клиент
-"Купол". Запросы обычно отправляются на собственный хост (`127.0.0.1:20062`).
+шлюза сервера приложений "Купол". Запросы обычно отправляются на собственный
+хост (`127.0.0.1:20062`). См. конфигурацию шлюза в файле
+`WEB_TINTS/release/core/scripts/nodejs/low_info_gas/KupolClient.ini`.
+
+На рабочем сервере используется другая конфигурация nginx. См. [пример
+nginx.conf с youcomp](working-server-nginx.conf)
 
 В режиме `enb` запросы данных перенаправляются на расположенные в папке
 `WEB_TINTS/source/fake-data` сохранённые демо-данные.
 
 См. [Эмуляция и накопление данных от сервера приложения](fake-data.md).
-
-На рабочем сервере используется другая конфигурация nginx. См. [пример
-nginx.conf с youcomp](working-server-nginx.conf)
 
 Клиент "Купол"
 --------------
