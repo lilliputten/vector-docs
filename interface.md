@@ -1,5 +1,5 @@
-> $Id: interface.md 10509 2018-08-08 16:36:18Z miheev $
-> $Date: 2018-08-08 19:36:18 +0300 (Ср, 08 авг 2018) $
+> $Id: interface.md 10510 2018-08-08 16:41:46Z miheev $
+> $Date: 2018-08-08 19:41:46 +0300 (Ср, 08 авг 2018) $
 
 Интерфейс системы
 =================
@@ -243,4 +243,20 @@
         ],
     },
 ```
+
+Иконки
+------
+
+Набор иконок Font Awesome (`fa-*`):
+
+- [Icons | Font Awesome](https://fontawesome.com/icons?m=free)
+- [font-awesome - npm](https://www.npmjs.com/package/font-awesome)
+- [FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit](https://github.com/FortAwesome/Font-Awesome)
+- Модуль-загрузчик: `WEB_TINTS/source/blocks/loaders/fontawesome/fontawesome.js`
+
+Набор иконок Themify (`ti-*`):
+
+- [Themify Icons - 320+ Free Icons For Web Design & Apps](https://themify.me/themify-icons)
+- [lykmapipo/themify-icons: Pixel-perfect, hand-crafted icons that draw inspiration from Apple iOS 7](https://github.com/lykmapipo/themify-icons)
+- Модуль-загрузчик: `WEB_TINTS/source/blocks/loaders/themifyicons/themifyicons.js`
 
