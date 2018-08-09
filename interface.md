@@ -1,5 +1,5 @@
-> $Id: interface.md 10511 2018-08-09 09:17:49Z miheev $
-> $Date: 2018-08-09 12:17:49 +0300 (Чт, 09 авг 2018) $
+> $Id: interface.md 10512 2018-08-09 10:52:11Z miheev $
+> $Date: 2018-08-09 13:52:11 +0300 (Чт, 09 авг 2018) $
 
 Интерфейс системы
 =================
@@ -290,3 +290,66 @@
 
 ![Изображение: Блоки ValueCell](img/demo-ValueCell.png)
 
+Примеры из демо:
+
+```javascript
+    { title : 'Без названия; во всю строку', id : 'editableNoTitle',
+        block : 'ValueCell',
+        val : 'Текст во всю строку',
+        mods : {
+            noTitle : true,
+            editable : 'manual',
+        },
+    },
+    { title : 'Нередактируемый', id : 'notEditable',
+        block : 'ValueCell',
+        val : 'Текст',
+        mods : {
+        },
+    },
+    { title : 'Редактируемый (управляется извне)', id : 'editableExternal',
+        block : 'ValueCell',
+        val : 'Текст',
+        mods : {
+            editable : true,
+            autoSave : true,
+        },
+    },
+    { title : 'В режиме редактирования', id : 'editActive',
+        block : 'ValueCell',
+        val : 'Текст',
+        mods : {
+            editable : 'manual',
+            edit : true,
+        },
+    },
+    { title : 'Выбор из словаря', id : 'selectDict', type : 'select',
+        block : 'ValueCell',
+        dict : 'DCHierarchy',
+        mode : 'check',
+        val : 2,
+        mods : {
+            editable : 'manual',
+        },
+    },
+    { title : 'Выбор из вариантов', id : 'selectOptions', type : 'select',
+        block : 'ValueCell',
+        options : [
+            { val : 1, text : 'Один' },
+            { val : 2, text : 'Два' },
+            { val : 3, text : 'Три' },
+        ],
+        dict_mode : 'check',
+        val : 1,
+        mods : {
+            editable : 'manual',
+        },
+    },
+    { title : 'Координата', id : 'radCoord', type : 'radCoord',
+        block : 'ValueCell',
+        val : 0.660039424896,
+        mods : {
+            editable : 'manual',
+        },
+    },
+```
