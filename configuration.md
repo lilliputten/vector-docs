@@ -1,5 +1,5 @@
-> $Id: configuration.md 10467 2018-08-06 11:35:40Z miheev $
-> $Date: 2018-08-06 14:35:40 +0300 (Пн, 06 авг 2018) $
+> $Id: configuration.md 10521 2018-08-09 12:44:56Z miheev $
+> $Date: 2018-08-09 15:44:56 +0300 (Чт, 09 авг 2018) $
 
 Конфигурация системы
 ====================
@@ -43,6 +43,73 @@
 - `WEB_TINTS/release/element-dc/scripts/php/app/config/config.php`
 - `WEB_TINTS/release/element-tcm/scripts/php/app/config/config.php`
 - `WEB_TINTS/release/element-umto/scripts/php/app/config/config.php`
+
+В свойстве массива `$configData['Privilegies']` задаются параметры доступа к
+контроллервам, используемым в данном приложении.
+
+См. пример для приложения `application`:
+
+```php
+    // ...
+    'Privelegies' => array (
+        'errors' => array(
+            'show401',
+            'show404',
+            'show500',
+        ),
+        'session' => array(
+            'index',
+            'register',
+            'start',
+            'end',
+        ),
+        'Login' => array(
+            'index',
+            'logout',
+        ),
+        'index' => array(
+            'index',
+        ),
+        'User' => array(
+            'signin',
+            'signedout',
+            'signoff',
+        ),
+        'Auth' => array(
+            'ADAuth',
+            'ADClear',
+            'ADAuthFailed',
+            'ADAuthIntro',
+            'signoff',
+            'signout',
+            'spAuth' => $CONTROLLER_AUTH_MODE,
+            'renewNodejsSession' => $DEFAULT_AUTH_MODE,
+        ),
+        'Layout' => array(
+            'get_AppParams_' => $DEFAULT_AUTH_MODE,
+            'get_DictsQueue_' => $DEFAULT_AUTH_MODE,
+        ),
+        'CommonData' => array(
+            'getDictsQueue' => $DEFAULT_AUTH_MODE,
+        ),
+        'ReportSnap' => array(
+            'getSnapsList' => $DEFAULT_AUTH_MODE,
+            'saveSnap' => $DEFAULT_AUTH_MODE,
+            'loadSnap' => $DEFAULT_AUTH_MODE,
+        ),
+        'KOData' => array(
+            'getInitialData' => $DEFAULT_AUTH_MODE,
+            'getDataColumns' => $DEFAULT_AUTH_MODE,
+        ),
+        'DCList' => array(
+            'checkWSDLUrl' => $DEFAULT_AUTH_MODE,
+        ),
+        'Events' => array(
+            'AcceptProblem' => $DEFAULT_AUTH_MODE,
+        ),
+    ),
+    // ...
+```
 
 Структура меню и список страниц системы
 ---------------------------------------
