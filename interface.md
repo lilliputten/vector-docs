@@ -160,6 +160,7 @@
 - `select` -- Выбор из выпадающего списка (одиночный -- обязательный или нет, множественный).
 - `selector` -- Переключатель вариантов (синоним: `selector_group`).
 
+Все элементы в конечно итоге транслируются (на уровне шаблонов bemhtml) в стандартные (input, button) или собственные (datetimerange) блоки ввода, с примесью элементов `actions__item`. Т.е. доопределение логики,
 Возможно дополнение типов элементов. См.:
 
 - `WEB_TINTS/source/blocks/interface/actions/actions.bemhtml`
@@ -276,4 +277,16 @@
 - [Themify Icons - 320+ Free Icons For Web Design & Apps](https://themify.me/themify-icons)
 - [lykmapipo/themify-icons: Pixel-perfect, hand-crafted icons that draw inspiration from Apple iOS 7](https://github.com/lykmapipo/themify-icons)
 - Модуль-загрузчик: `WEB_TINTS/source/blocks/loaders/themifyicons/themifyicons.js`
+
+Универсальные поля показа/ввода данных
+--------------------------------------
+
+Элементы ввода/вывода данных формируются блоками `ValueCell`, группируются в блоки `ValuesGroup`.
+
+См. примеры в демо-блоке `WEB_TINTS/source/blocks/test/demo/_ValueCell`:
+
+- `http://localhost:8080/pages/Demo/Demo.htm?demo=ValueCell`
+- `http://youcomp.geyser.ru:5590/WEB_TINTS/release/core/app.debug.html?demo=ValueCell#Demo`
+
+![Изображение: Блоки ValueCell](img/demo-ValueCell.png)
 
