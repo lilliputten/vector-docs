@@ -1,5 +1,5 @@
-> $Id: interface.md 10510 2018-08-08 16:41:46Z miheev $
-> $Date: 2018-08-08 19:41:46 +0300 (Ср, 08 авг 2018) $
+> $Id: interface.md 10511 2018-08-09 09:17:49Z miheev $
+> $Date: 2018-08-09 12:17:49 +0300 (Чт, 09 авг 2018) $
 
 Интерфейс системы
 =================
@@ -151,12 +151,29 @@
 
 Обычно используются следующие элементы:
 
+- `text` -- Вывод текстовой информации без интерактивности.
+- `action` -- Кнопка действия (иконка, кнопка с иконкой и т.д.).
+- `button` -- Альтернативная кнопка (устар.?).
+- `input` -- Текстовое поле ввода.
+- `date` -- Воод даты.
+- `datetimerange` -- Ввод диапазона дат (два поля даты, на основе кастомного поля `datetimerange` -- см. `WEB_TINTS/source/blocks/root/datetimerange`).
+- `select` -- Выбор из выпадающего списка (одиночный -- обязательный или нет, множественный).
+- `selector` -- Переключатель вариантов (синоним: `selector_group`).
+
+Возможно дополнение типов элементов. См.:
+
+- `WEB_TINTS/source/blocks/interface/actions/actions.bemhtml`
+- `WEB_TINTS/source/blocks/interface/actions/__item/actions__item.bemhtml`
+- `WEB_TINTS/source/blocks/interface/actions/__item/actions__item.js`
+- `WEB_TINTS/source/blocks/interface/actions/__item/actions__item.styl`
+- `WEB_TINTS/source/blocks/interface/actions/__item/_type/actions__item_type_*.*`
+
 Примеры элементов
 -----------------
 
 (Рассматриваются элементы блока `actions`.)
 
-См. примеры в демо-блоке `WEB_TINTS\source\blocks\test\demo\_actions\demo_actions_default.js`
+См. примеры в демо-блоке `WEB_TINTS/source/blocks/test/demo/_actions/demo_actions_default.js`
 
 См. демо-страницу:
 
