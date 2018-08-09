@@ -1,5 +1,5 @@
-> $Id: server-data.md 10521 2018-08-09 12:44:56Z miheev $
-> $Date: 2018-08-09 15:44:56 +0300 (Чт, 09 авг 2018) $
+> $Id: server-data.md 10524 2018-08-09 13:37:10Z miheev $
+> $Date: 2018-08-09 16:37:10 +0300 (Чт, 09 авг 2018) $
 
 Описания данных на сервере
 ==========================
@@ -64,7 +64,7 @@
 -------------------------------------
 
 Метод `get_AppParams_` общего контроллера `Layout` для приложения
-`appllication` (запрос `{releasePath}/application/Layout/get_AppParams_` см.
+`appllication` (запрос `{{approot}}application/Layout/get_AppParams_` см.
 `WEB_TINTS/release/core/scripts/php/app/controllers/LayoutController.php`)
 подготавливает и отправляет клиенту (конкретно, в модуль `app`) конфигурацию
 проекта.
@@ -77,51 +77,132 @@
 
 ```javascript
 {
-  config: {
-    // Параметры сборки
-    bem: {
-      projectName: 'vektor-element',
-      projectVersion: '0.0.9',
-      dateTag: '180809-144138',
-      hashTag: 'd21a4e',
-      projectTag: '0.0.9 @ 180809-144138 | d21a4e',
+    config: {
+        // Параметры сборки
+        bem: {
+            projectName: 'vektor-element',
+            projectVersion: '0.0.9',
+            dateTag: '180809-144138',
+            hashTag: 'd21a4e',
+            projectTag: '0.0.9 @ 180809-144138 | d21a4e',
+        },
+        // Адрес сервера сокетов. См. `WEB_TINTS/source/blocks/libs/socket/socket.js`.
+        websocketUrl: 'http://youcomp.geyser.ru:8083',
+        // // Адрес ГИС сервера. На клиенте не используется.
+        // mapserverUrl: 'http://youcomp.geyser.ru:5588',
+        cache: {
+            // Константы с временами жизни словарей.
+            lifetime_default: 3600,
+            lifetime_short: 300,
+            lifetime_supershort: 60,
+            lifetime_long: 86400,
+            _DATA_TYPES: { /* Список словарей и их параметры. См. в конце файла `config_constants.php`. */ },
+        },
+        // Параметры приложения
+        appdata: {
+            defaultPage: 'app:tcm', // Страница по умолчанию
+            pages: { /* Описания страниц системы */ },
+            menuRubrics: [ /* Рубрики меню верхнего уровня */ ],
+            menu: { /* Иерархическое описание меню */ },
+        },
+        // Параметры времени жизни токена безопасности. Из `config_constants.php`.
+        token: {
+            life_time: 1800,
+            save_time: 60,
+            refresh_time: 30,
+        },
+        // Токен безопасности. Перевыпускается периодически в соотв. с параметром
+        // конфигурации сервера `token->refresh_time` (задаётся в `config_constants.php`).
+        nodeToken: '238139015338137265b6c23de202de3.15654825',
+        // Путь к корню веб-сервера
+        approot: 'http://youcomp.geyser.ru:5590/WEB_TINTS/release/',
     },
-    // Адрес сервера сокетов. См. `WEB_TINTS/source/blocks/libs/socket/socket.js`.
-    websocketUrl: 'http://youcomp.geyser.ru:8083',
-    // // Адрес ГИС сервера. На клиенте не используется.
-    // mapserverUrl: 'http://youcomp.geyser.ru:5588',
-    cache: {
-      // Константы с временами жизни словарей.
-      lifetime_default: 3600,
-      lifetime_short: 300,
-      lifetime_supershort: 60,
-      lifetime_long: 86400,
-      _DATA_TYPES: { /* Список словарей и их параметры. См. в конце файла `config_constants.php`. */ },
+    // Информация о текущем пользователе
+    user: {
+        username: 'GEYSER//miheev',
+        userID: 90,
+        isAdmin: true,
+        isOperator: true,
     },
-    // Параметры приложения
-    appdata: {
-      defaultPage: 'app:tcm', // Страница по умолчанию
-      pages: { /* Описания страниц системы */ },
-      menuRubrics: [ /* Рубрики меню верхнего уровня */ ],
-      menu: { /* Иерархическое описание меню */ },
-    },
-    // Параметры времени жизни токена безопасности. Из `config_constants.php`.
-    token: {
-      life_time: 1800,
-      save_time: 60,
-      refresh_time: 30,
-    },
-    // Токен безопасности. Перевыпускается периодически в соотв. с параметром конфигурации сервера `token->refresh_time` (задаётся в `config_constants.php`).
-    nodeToken: '238139015338137265b6c23de202de3.15654825',
-    // Путь к корню веб-сервера
-    approot: 'http://youcomp.geyser.ru:5590/WEB_TINTS/release/',
-  },
-  // Информация о текущем пользователе
-  user: {
-    username: 'GEYSER//miheev',
-    userID: 90,
-    isAdmin: true,
-    isOperator: true,
-  },
 }
 ```
+
+Полученные данные обрабатываются в методе `_acceptAppParams` компонента `app`
+(`WEB_TINTS/source/blocks/shared/app/app.js`) и сохраняются в свойстве
+`app.config`.
+
+Запрос основных данных
+----------------------
+
+Запрос основных данных не является обязательным (в отличие от параметров
+приложения), но чаще всего (если страница работает со списком КО) он всё-таки
+производится.
+
+Адрес запроса:
+
+- `{{approot}}application/KOData/getInitialData`.
+
+Запрос обрабатывается методом `getInitialData` контроллера `KOData`
+(`WEB_TINTS/release/core/scripts/php/app/controllers/KODataController.php`).
+
+Возвращается набор данных от библиотечного модуля `KOData` (``):
+
+```php
+    $this->_responseData = array(
+        'datasets' => $KOData->objects_list_datasets,
+        'columns' => $KOData->objects_list_columns,
+        'search_filter' => $KOData->objects_list_search,
+        'used_dicts' => $KOData->objects_list_columns_dict,
+    );
+```
+
+Полученные данные описывают структуру представления списка КО.
+
+Сам список КО предоставляется другим запросом к тому же контроллеру:
+
+- `{{approot}}application/KOData/getDataColumns`.
+
+Параметры запроса:
+
+- `userID` - Идентификатор пользователя.
+- `columns` -- Список необходимых параметров списка КО (строка объединённых через запятую идентификаторов полей данных).
+
+Для каждого запрошенного параметра возвращается список значений из базы данных:
+
+```javascript
+{
+    '{keyId}' : [ /* Список значений... */ ],
+    // ...
+}
+```
+
+Запрос словарей
+---------------
+
+Адрес запроса:
+
+- `{{approot}}application/CommonData/getDictsQueue`.
+
+Параметры запроса:
+
+- `userID` -- Идентификатор пользователя.
+- `lifetime` -- Время кеширования ответа (по умолчанию не кешируется).
+- `idlist` -- Список словарей (строка объединённых через запятую идентификаторов полей данных).
+
+Загрузка словарей производится через кеширующие методы `app` (`WEB_TINTS/source/blocks/shared/app/app.js`):
+
+- `load_dicts` -- Метод низкого уровня, используется всеми нижеперечисленными (проверка загруженности, загрузка при необходимости).
+- `callback_dicts` -- Загрузка словарей с колбеками.
+- `resolve_dicts` -- Получение данных/словарей с проверкой загруженности через промис.
+- `resolve_dicts_spread` -- Распределение результатов загрузки словарей в обычный массив для принятия в spread. Возвращает промис.
+
+Запрос данных/ресурсов
+----------------------
+
+Запросы произвольных данных и ресурсов (напр., ресурсов пакетов и прочих зависимостей) производятся методами `app` (`WEB_TINTS/source/blocks/shared/app/app.js`):
+
+- `load_assets`
+- `load_page_assets`
+- `load_page_assets`
+- `resolve_assets`
+- `resolve_assets_spread`
