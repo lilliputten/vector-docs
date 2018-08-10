@@ -1,5 +1,5 @@
-> $Date: 2018-08-01 19:05:47 +0300 (Ср, 01 авг 2018) $
-> $Id: dev-servers.md 10439 2018-08-01 16:05:47Z miheev $
+> $Date: 2018-08-10 15:29:47 +0300 (Пт, 10 авг 2018) $
+> $Id: dev-servers.md 10532 2018-08-10 12:29:47Z miheev $
 
 Работа с серверами
 ==================
@@ -54,6 +54,11 @@ Stable-версия:
 - [Remote Apache nginx](http://185.41.41.90:5590/WEB_TINTS/core/app.html)
 - [Remote IIS plain](http://185.41.41.90:56010/WEB_TINTS/core/app.html)
 - [Remote IIS nginx](http://185.41.41.90:5591/WEB_TINTS/core/app.html)
+
+Документация:
+
+- [В локальной сети](http://youcomp.geyser.ru/web_tints_doc/)
+- [Из внешней сети](http://185.41.41.90:56010/web_tints_doc/)
 
 "Три приложения":
 
