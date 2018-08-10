@@ -1,7 +1,7 @@
 {
   "name": "element-web-client-docs",
   "version": "1.0.0",
-  "description": "> $Id: package.json 10530 2018-08-10 12:16:38Z miheev $ > $Date: 2018-08-10 15:16:38 +0300 (Пт, 10 авг 2018) $",
+  "description": "> $Id: package.json 10531 2018-08-10 12:19:29Z miheev $ > $Date: 2018-08-10 15:19:29 +0300 (Пт, 10 авг 2018) $",
   "main": "README.md",
   "repository": {
     "type": "git",
