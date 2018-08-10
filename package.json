@@ -1,0 +1,41 @@
+{
+  "name": "element-web-client-docs",
+  "version": "1.0.0",
+  "description": "> $Id: package.json 10530 2018-08-10 12:16:38Z miheev $ > $Date: 2018-08-10 15:16:38 +0300 (Пт, 10 авг 2018) $",
+  "main": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilliputten/vector-docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilliputten/vector-docs/issues"
+  },
+  "homepage": "https://github.com/lilliputten/vector-docs#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "fs-extra": "^7.0.0",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-insert": "^0.5.0",
+    "gulp-markdown": "^3.0.0",
+    "gulp-markdown-github-style": "^1.1.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-stylus": "^2.7.0",
+    "highlight.js": "^9.12.0",
+    "lazypipe": "^1.0.1",
+    "stylus": "^0.54.5"
+  },
+  "scripts": {
+    "md": "gulp md",
+    "clean": "gulp clean",
+    "all": "gulp all"
+  }
+}
